@@ -1,7 +1,7 @@
 {
-  "name": "API.AI weather test",
-  "description": "API.AI weather test",
+  "name": "API weather test",
+  "description": "API weather test",
   "repository": "https://github.com/yuvanshu/apiweathertest",
   "logo": "http://xvir.github.io/img/apiai.png",
-  "keywords": ["api.ai", "weather"]
+  "keywords": ["api", "weather"]
 }
