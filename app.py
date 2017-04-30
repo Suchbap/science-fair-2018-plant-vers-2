@@ -41,14 +41,15 @@ def processRequest(req):
     baseurl = "https://query.yahooapis.com/v1/public/yql?"
     yql_query = makeYqlQuery(req)
     if yql_query is None:
-        #return {}
+        return {}
     yql_url = baseurl + urlencode({'q': yql_query}) + "&format=json"
     result = urlopen(yql_url).read()
-    result = .read()
     data = json.loads(result)
     res = makeWebhookResult(data)
+    return res
 
-    def makeYqlQuery(req):
+
+def makeYqlQuery(req):
     result = req.get("result")
     parameters = result.get("parameters")
     city = parameters.get("geo-city")
@@ -85,7 +86,7 @@ def makeWebhookResult(data):
 
     speech = "Today in " + location.get('city') + ": " + condition.get('text') + \
              ", the temperature is " + condition.get('temp') + " " + units.get('temperature')
-    
+
     print("Response:")
     print(speech)
 
