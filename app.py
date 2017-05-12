@@ -46,8 +46,11 @@ def processRequest(req):
         data = json.loads(result)
         res = makeWebhookResult(data)
     elif req.get("result").get("action") == "plant-type":
+        result = req.get("result")
+        parameters = result.get("parameters")
+        plant = parameters.get("plant-type")
         data = {}
-        data["speech"] = 'Hello World'
+        data["speech"] = "Hello World" + plant-type.get("plant")
         data["displayText"] = data["speech"]
         data["source"] = "apiai-weather-webhook-sample"
         res = data
