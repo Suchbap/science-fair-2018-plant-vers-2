@@ -30,7 +30,7 @@ def webhook():
 
     res = json.dumps(res, indent=4)
     # print(res)
-    r = make_response(res)
+        r = make_response(res)
     r.headers['Content-Type'] = 'application/json'
     return r
 
@@ -49,14 +49,13 @@ def processRequest(req):
         result = req.get("result")
         parameters = result.get("parameters")
         plant-type = parameters.get("plant-type")
-    if plant-type is None:
+        if plant-type is None:
         return None
         data = {}
         data["speech"] = "Hello World" + parameters.get("plant-type")
         data["displayText"] = data["speech"]
-        data["source"] = "apiai-weather-webhook-sample" 
         res = data
-    return res
+        return res
 
 
 def makeYqlQuery(req):
