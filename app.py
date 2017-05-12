@@ -51,9 +51,9 @@ def processRequest(req):
         data["displayText"] = data["speech"]
         data["source"] = "apiai-weather-webhook-sample" 
         res = data
-
-    
-
+        
+return res
+  
 
 def makeYqlQuery(req):
     result = req.get("result")
