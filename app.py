@@ -47,7 +47,7 @@ def processRequest(req):
         parameters = result.get("parameters")
         plant = parameters.get("plant-type")
         data = {}
-        data["speech"] = "Where are your" + plant + "located? " 
+        data["speech"] = "Where are your plants located? " 
         data["displayText"] = data["speech"]
         data["source"] = "apiai-weather-webhook-sample"
         res = data
@@ -89,7 +89,7 @@ def makeWebhookResult(data):
 
     # print(json.dumps(item, indent=4))
 
-    speech = "Today in " + location.get('city') + ": " + condition.get('text') + ", the temperature is " + condition.get('temp') + " " + units.get('temperature') + " What is the soil moisture of the plant,Yuvanshu. You live in"
+    speech = "Today in " + location.get('city') + ": " + condition.get('text') + ", the temperature is " + condition.get('temp') + " " + units.get('temperature') + " What is the soil moisture of the plant,Yuvanshu."
                            
     print("Response:")
     print(speech)
