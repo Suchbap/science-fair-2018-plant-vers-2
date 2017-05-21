@@ -96,8 +96,8 @@ def makeWebhookResult(data):
 
     print("Response:")
     print(speech)
-    city_name = location.get('city')
-    print(city_name)
+    print("city_name is %s" %city)
+  
     return {
         "speech": speech,
         "displayText": speech,
