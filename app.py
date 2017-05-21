@@ -96,7 +96,8 @@ def makeWebhookResult(data):
 
     print("Response:")
     print(speech)
-
+    city_name = location.get('city')
+    print(city_name)
     return {
         "speech": speech,
         "displayText": speech,
@@ -110,5 +111,4 @@ if __name__ == '__main__':
     port = int(os.getenv('PORT', 5000))
 
     print("Starting app on port %d" % port)
-    print("city name is %s",%city")
     app.run(debug=False, port=port, host='0.0.0.0')
