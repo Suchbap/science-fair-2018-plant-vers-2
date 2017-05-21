@@ -22,7 +22,6 @@ app = Flask(__name__)
 @app.route('/webhook', methods=['POST'])
 def webhook():
     req = request.get_json(silent=True, force=True)
-
     print("Request:")
     print(json.dumps(req, indent=4))
 
@@ -34,7 +33,6 @@ def webhook():
     r.headers['Content-Type'] = 'application/json'
     return r
 
-
 def processRequest(req):
     if req.get("result").get("action") == "apiweathertest":
         baseurl = "https://query.yahooapis.com/v1/public/yql?"
@@ -43,14 +41,13 @@ def processRequest(req):
             return {}
         yql_url = baseurl + urlencode({'q': yql_query}) + "&format=json"
         result = urlopen(yql_url).read()
-        data = json.loads(result)
-        res = makeWebhookResult(data)
+        data = json.loads(result)        res = makeWebhookResult(data)
     elif req.get("result").get("action") == "plant-type":
         result = req.get("result")
         parameters = result.get("parameters")
         plant = parameters.get("plant-type")
         data = {}
-        data["speech"] = "Where are your plants located? " 
+        data["speech"] = "Where are your" + plant + "located? " 
         data["displayText"] = data["speech"]
         data["source"] = "apiai-weather-webhook-sample"
         res = data
@@ -92,7 +89,7 @@ def makeWebhookResult(data):
 
     # print(json.dumps(item, indent=4))
 
-    speech = "Today in " + location.get('city') + ": " + condition.get('text') + ", the temperature is " + condition.get('temp') + " " + units.get('temperature') + " What is the soil moisture of the plant,Yuvanshu. You live in" + location.get('city')
+    speech = "Today in " + location.get('city') + ": " + condition.get('text') + ", the temperature is " + condition.get('temp') + " " + units.get('temperature') + " What is the soil moisture of the plant,Yuvanshu. You live in"
                            
     print("Response:")
     print(speech)
