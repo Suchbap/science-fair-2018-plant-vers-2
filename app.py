@@ -92,7 +92,7 @@ def makeWebhookResult(data):
 
     # print(json.dumps(item, indent=4))
     
-    if (condition.get('temp') > 50) then
+    if condition.get('temp') > 50:
        speech = "Water the plants"
         
 
