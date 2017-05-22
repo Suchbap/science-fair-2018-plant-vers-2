@@ -97,7 +97,7 @@ def makeWebhookResult(data):
     #elif condition.get('temp') < 80:
     #    speech = "Donot Water the plants"
     
-    speech = condition.get('temp')
+    speech = parameters.get("plant-type") + condition.get('temp')
 
     #speech = "Today in " + location.get('city') + ": " + condition.get('text') + ", the temperature is " + condition.get('temp') + " " + units.get('temperature') + " What is the soil moisture of the plant,Yuvanshu. "
 
