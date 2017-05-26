@@ -93,12 +93,13 @@ def makeWebhookResult(data):
     # print(json.dumps(item, indent=4))
     
     #cond = condition.get('text') + condition.get('temp')
-    #if cond > 100:
-    #    speech = "Water the plants"
-    #elif cond < 80:
-     #   speech = "Donot Water the plants"
+    cond = float(condition.get('temp'))
+    if cond > 100:
+        speech = "Water the plants"
+    elif cond < 80:
+        speech = "Donot Water the plants"
 
-    speech = "Today in " + location.get('city') + ": " + condition.get('text') + ", the temperature is " + condition.get('temp') + " " + units.get('temperature') + " What is the soil moisture of the plant,Yuvanshu. "
+    #speech = "Today in " + location.get('city') + ": " + condition.get('text') + ", the temperature is " + condition.get('temp') + " " + units.get('temperature') + " What is the soil moisture of the plant,Yuvanshu. "
 
     print("Response:")
     print(speech)
