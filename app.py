@@ -112,14 +112,14 @@ def makeWebhookResult(data):
     
     #cond = condition.get('text') + condition.get('temp')
     cond = float(condition.get('temp'))
-    plantmoisture = float(parameters.get("number"))
-    if cond > 80 and plantmoisture < 30:
+    moist = float(parameters.get("number"))
+    if cond > 80 and moist < 30:
         speech = "Water the plants"
-    if cond > 80 and plantmoisture >= 30:
+    if cond > 80 and moist >= 30:
         speech = "Do not Water the plants"
-    if cond <= 80 and plantmoisture < 30:
+    if cond <= 80 and moist < 30:
         speech = "Water the plants" 
-    if cond <= 80 and plantmoisture >= 30:
+    if cond <= 80 and moist >= 30:
         speech = "Do not Water the plants"
 
     #speech = "Today in " + location.get('city') + ": " + condition.get('text') + ", the temperature is " + condition.get('temp') + " " + units.get('temperature') + " What is the soil moisture of the plant,Yuvanshu. "
