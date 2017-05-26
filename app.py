@@ -113,7 +113,7 @@ def makeWebhookResult(data):
     #cond = condition.get('text') + condition.get('temp')
     cond = float(condition.get('temp'))
     if cond > 80:
-        speech = "Your" + plant + "located in" + plantlocation + "in" city "needs to be watered."  
+        speech = "Your" + (plant) + "located in" + (plantlocation) + "in" (city) "needs to be watered."  
     elif cond <= 80:
         speech = "Do not Water the plants"
 
