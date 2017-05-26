@@ -68,7 +68,7 @@ def processRequest(req):
         parameters = result.get("parameters")
         plantmoisture = parameters.get("number")
         data = {}
-        data["speech"] = "Which city is your {0} located in? ".format(plant) 
+        data["speech"] = "Which city is your plants located in?"
         data["displayText"] = data["speech"]
         data["source"] = "apiai-weather-webhook-sample"
         res = data
