@@ -66,7 +66,7 @@ def processRequest(req):
     elif req.get("result").get("action") == "plant-soil-moisture":
         result = req.get("result")
         parameters = result.get("parameters")
-        plantmoisture = parameters.get("plant-soil-moisture")
+        plantmoisture = parameters.get("number")
         data = {}
         data["speech"] = "Which city is your {0} located in? ".format(plant) 
         data["displayText"] = data["speech"]
