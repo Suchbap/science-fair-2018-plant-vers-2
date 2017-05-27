@@ -1,6 +1,8 @@
 # apiweathertest
 
-yuvanshu learning about the science project
+yuvanshu learning python for the about the science project on personal gardener
+
+app1 contains original python code for my-personal-gardener
 
 deploy to heroku 
 
