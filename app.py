@@ -117,9 +117,19 @@ def makeWebhookResult(data):
     #elif cond <= 80:
     #    speech = "Today in " + location.get('city') + ": " + condition.get('text') + ", the temperature is " + condition.get('temp') + " " + units.get('temperature') + " Your plants do not need water,Yuvanshu. "
 
-    plant = parameters.get("plant-type")
-    if plant in "tulips":
-        speech = "Hello, Yuvanshu you are awesome"
+def processRequest(req):
+    if req.get("result").get("action") == "water-recommendation":
+        result = req.get("result")
+        parameters = result.get("parameters")
+        plant = parameters.get("plant-type")
+        if plant in "tulips":
+            data = {}
+            data["speech"] = "Yuvanshu your {0} needs water? ".format(plant) 
+            data["displayText"] = data["speech"]
+            data["source"] = "apiai-weather-webhook-sample"
+            res = data
+        return res
+    
     
     
     #speech = "Today in " + location.get('city') + ": " + condition.get('text') + ", the temperature is " + condition.get('temp') + " " + units.get('temperature') + " Your plant need water,Yuvanshu. "
