@@ -127,8 +127,12 @@ def processRequest(req):
         if plant in "tulips":
             data = {}
             data["speech"] = "Yuvanshu your {0} needs water? ".format(plant) 
+            data["displayText"] = data["speech"]
+            data["source"] = "apiai-weather-webhook-sample"
+            res = data
         elif plant in "roses":
-            data["speech"] = "Yuvanshu your {0} DO NOT need water? ".format(plant) 
+            data = {}
+            data["speech"] = "Yuvanshu your {0} do not need water? ".format(plant) 
             data["displayText"] = data["speech"]
             data["source"] = "apiai-weather-webhook-sample"
             res = data
