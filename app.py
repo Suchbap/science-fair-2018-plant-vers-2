@@ -117,7 +117,12 @@ def makeWebhookResult(data):
     #elif cond <= 80:
     #    speech = "Today in " + location.get('city') + ": " + condition.get('text') + ", the temperature is " + condition.get('temp') + " " + units.get('temperature') + " Your plants do not need water,Yuvanshu. "
 
-    speech = "Today in " + location.get('city') + ": " + condition.get('text') + ", the temperature is " + condition.get('temp') + " " + units.get('temperature') + " Your plant need water,Yuvanshu. "
+    plant = parameters.get("plant-type")
+    if plant in "tulips":
+        speech = "Hello, Yuvanshu you are awesome"
+    
+    
+    #speech = "Today in " + location.get('city') + ": " + condition.get('text') + ", the temperature is " + condition.get('temp') + " " + units.get('temperature') + " Your plant need water,Yuvanshu. "
 
     print("Response:")
     print(speech)
