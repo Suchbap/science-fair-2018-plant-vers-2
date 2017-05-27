@@ -124,10 +124,10 @@ def processRequest(req):
         plant = parameters.get("plant-type")
         moist = parameters.get("SoilMoisture")
         cond = float(condition.get('temp'))
-        if plant in "tulips" and moist <= 30:
+        if plant in "tulips":
             data = {}
             data["speech"] = "Yuvanshu your {0} needs water? ".format(plant) 
-        elif plant in "tulips" and moist >= 30:
+        elif plant in "roses":
             data["speech"] = "Yuvanshu your {0} DO NOT need water? ".format(plant) 
             data["displayText"] = data["speech"]
             data["source"] = "apiai-weather-webhook-sample"
