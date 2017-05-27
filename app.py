@@ -130,12 +130,6 @@ def processRequest(req):
             data["displayText"] = data["speech"]
             data["source"] = "apiai-weather-webhook-sample"
             res = data
-        elif plant in "roses":
-            data = {}
-            data["speech"] = "Yuvanshu your {0} do not need water? ".format(plant) 
-            data["displayText"] = data["speech"]
-            data["source"] = "apiai-weather-webhook-sample"
-            res = data
         return res
     
     
