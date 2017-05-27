@@ -122,16 +122,16 @@ def processRequest(req):
         result = req.get("result")
         parameters = result.get("parameters")
         plant = parameters.get("plant-type")
+        moist = parameters.get("SoilMoisture")
         cond = float(condition.get('temp'))
-        if plant in "tulips":
-            if cond > 80:
-                data = {}
-                data["speech"] = "Yuvanshu your {0} needs water? ".format(plant) 
-            elif cond <= 80:
-                data["speech"] = "Yuvanshu your {0} DO NOT need water? ".format(plant) 
-                data["displayText"] = data["speech"]
-                data["source"] = "apiai-weather-webhook-sample"
-                res = data
+        if plant in "tulips" and mois <= 30:
+            data = {}
+            data["speech"] = "Yuvanshu your {0} needs water? ".format(plant) 
+        elif plant in "tulips" and mois >= 30:
+            data["speech"] = "Yuvanshu your {0} DO NOT need water? ".format(plant) 
+            data["displayText"] = data["speech"]
+            data["source"] = "apiai-weather-webhook-sample"
+            res = data
         return res
     
     
