@@ -91,14 +91,42 @@ if plant in ["beans","citrus", "cotton", "groundnut", "maize", "sorghum", "soybe
         if fcast in["sunny", "cloudy", "rainy"]:
             print ("Your " + plant + " plant located in the " + location + " needs water since the temperature is",temp,"degrees Fahrenheit, the weather forecast is " + fcast + " and the soil moisture percentage is",mois, "%.") 
             
-    if plant in "wheat" and mois >14 and <24:
-        if temp >80 and fcast in "sunny":
+    if plant in "wheat" and mois >=14 and <=24:
+        if temp >=80 and fcast in ["sunny", "cloudy"]:
             print ("Your " + plant + " plant located in the " + location + " needs water since the temperature is",temp,"degrees Fahrenheit, the weather forecast is " + fcast + " and the soil moisture percentage is",mois, "%.")
+    elif temp=>80 and fcast in "rainy":
+        print ("Your " + plant + " plant located in the " + location + " doesn't need water since the temperature is",temp,"degrees Fahrenheit, the weather forecast is " + fcast + " and the soil moisture percentage is",mois, "%.") 
+    if plant in "wheat" and mois <=14 and >=10:
+        if temp =>80 and fcast ["sunny", "cloudy"]:
+            print ("Your " + plant + " plant located in the " + location + " needs water since the temperature is",temp,"degrees Fahrenheit, the weather forecast is " + fcast + " and the soil moisture percentage is",mois, "%.")
+    elif temp <80 and fcast in ["rainy", "cloudy"]:
+        print ("Your " + plant + " plant located in the " + location + " doesn't need water since the temperature is",temp,"degrees Fahrenheit, the weather forecast is " + fcast + " and the soil moisture percentage is",mois, "%.")
+    elif temp <80 and >=60 and fcast in "sunny":
+        print ("Your " + plant + " plant located in the " + location + " doesn't need water since the temperature is",temp,"degrees Fahrenheit, the weather forecast is " + fcast + " and the soil moisture percentage is",mois, "%.")
+    elif temp < 60 and fcast["sunny","cloudy","rainy"]:
+        print ("Your " + plant + " plant located in the " + location + " doesn't need water since the temperature is",temp,"degrees Fahrenheit, the weather forecast is " + fcast + " and the soil moisture percentage is",mois, "%.")
+    if plant in "wheat" and mois >24:
+        if temp <60 and <90 andfcast in ["rainy","cloudy", "sunny"]:
+            print ("Your " + plant + " plant located in the " + location + " doesn't need water since the temperature is",temp,"degrees Fahrenheit, the weather forecast is " + fcast + " and the soil moisture percentage is",mois, "%.")
+    elif temp >=90:
+        print ("Your " + plant + " plant located in the " + location + " needs water since the temperature is",temp,"degrees Fahrenheit, the weather forecast is " + fcast + " and the soil moisture percentage is",mois, "%.")
+    if plant in "wheat" and mois < 14 and >=10:
+        if temp >60 and fcast["sunny","cloudy"]:
+            print ("Your " + plant + " plant located in the " + location + " needs water since the temperature is",temp,"degrees Fahrenheit, the weather forecast is " + fcast + " and the soil moisture percentage is",mois, "%.")
+    elif temp >=60 and fcast "rainy":
+        print ("Your " + plant + " plant located in the " + location + "  doesn't need water since the temperature is",temp,"degrees Fahrenheit, the weather forecast is " + fcast + " and the soil moisture percentage is",mois, "%.")
+    elif temp<60 and fcast ["sunny","cloudy"]:
+        print("Your " + plant + " plant located in the " + location + " needs water since the temperature is",temp,"degrees Fahrenheit, the weather forecast is " + fcast + " and the soil moisture percentage is",mois, "%.")
+    elif temp <60 and fcast"rainy":
+        print("Your " + plant + " plant located in the " + location + " doesn't need water since the temperature is",temp,"degrees Fahrenheit, the weather forecast is " + fcast + " and the soil moisture percentage is",mois, "%.")
+    if plant in "wheat" and mois < 10:
+        if fcast ["sunny","cloudy","rainy"]:
+            print("Your " + plant + " plant located in the " + location + " needs water since the temperature is",temp,"degrees Fahrenheit, the weather forecast is " + fcast + " and the soil moisture percentage is",mois, "%.")
             
             
             
             
-            
+
             
             
             
