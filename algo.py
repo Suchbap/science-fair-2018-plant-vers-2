@@ -25,7 +25,7 @@ if plant in ["beans","citrus", "cotton", "groundnut", "maize", "sorghum", "soybe
             print("Your " + plant + " plant located in the " + location + " doesn't need water since the temperature is",temp,"degrees Fahrenheit, the weather forecast is " + fcast + " and the soil moisture percentage is",mois, "%.")
         elif temp <= 60 and fcast in ["sunny", "rainy", "cloudy"]:
             print("Your " + plant + " plant located in the " + location + " doesn't need water since the temperature is",temp,"degrees Fahrenheit, the weather forecast is " + fcast + " and the soil moisture percentage is",mois, "%.")
-    if plant in "cotton" and mois  :
+    if plant in "cotton" and mois <4.5 :
         if temp > 60 and fcast in ["sunny", "cloudy"]:
             print("Your " + plant + " plant located in the " + location + " needs water since the temperature is",temp,"degrees Fahrenheit, the weather forecast is " + fcast + " and the soil moisture percentage is",mois, "%.")
         elif temp > 60 and fcast in "rainy":
@@ -34,21 +34,21 @@ if plant in ["beans","citrus", "cotton", "groundnut", "maize", "sorghum", "soybe
             print("Your " + plant + " plant located in the " + location + " needs water since the temperature is",temp,"degrees Fahrenheit, the weather forecast is " + fcast + " and the soil moisture percentage is",mois, "%.")
         elif temp <= 60 and fcast in "rainy":
             print("Your " + plant + " plant located in the " + location + " doesn't need water since the temperature is",temp,"degrees Fahrenheit, the weather forecast is " + fcast + " and the soil moisture percentage is",mois, "%.")
-    elif plant in "maize" and mois >= 500 and mois <= 550:
+    elif plant in "maize" and mois >= 20 and mois <= 25:#for mature corn
         if temp > 60 and fcast in "sunny":
             print("Your " + plant + " plant located in the " + location + " needs water since the temperature is",temp,"degrees Fahrenheit, the weather forecast is " + fcast + " and the soil moisture percentage is",mois, "%.")
         elif temp > 60 and fcast in "rainy":
             print("Your " + plant + " plant located in the " + location + " doesn't need water since the temperature is",temp,"degrees Fahrenheit, the weather forecast is " + fcast + " and the soil moisture percentage is",mois, "%.")
         elif temp > 60 and fcast in "cloudy":
-            print("Your " + plant + " plant located in the " + location + " needs water since the temperature is",temp,"degrees Fahrenheit, the weather forecast is " + fcast + " and the soil moisture percentage is",mois, "%.")
+            print("Your " + plant + " plant located in the " + location + " doesn't need water since the temperature is",temp,"degrees Fahrenheit, the weather forecast is " + fcast + " and the soil moisture percentage is",mois, "%.")
         elif temp <= 60 and fcast in ["sunny", "rainy", "cloudy"]:
             print("Your " + plant + " plant located in the " + location + " doesn't need water since the temperature is",temp,"degrees Fahrenheit, the weather forecast is " + fcast + " and the soil moisture percentage is",mois, "%.")
-    if plant in "maize" and mois > 550:
+    if plant in "maize" and mois >26:
         if temp > 60 and fcast in ["sunny", "rainy", "cloudy"]:
             print("Your " + plant + " plant located in the " + location + " doesn't need water since the temperature is",temp,"degrees Fahrenheit, the weather forecast is " + fcast + " and the soil moisture percentage is",mois, "%.")
         elif temp <= 60 and fcast in ["sunny", "rainy", "cloudy"]:
             print("Your " + plant + " plant located in the " + location + " doesn't need water since the temperature is",temp,"degrees Fahrenheit, the weather forecast is " + fcast + " and the soil moisture percentage is",mois, "%.")
-    if plant in "maize" and mois < 500:
+    if plant in "maize" and mois < 20 and >=15:
         if temp > 60 and fcast in ["sunny", "cloudy"]:
             print("Your " + plant + " plant located in the " + location + " needs water since the temperature is",temp,"degrees Fahrenheit, the weather forecast is " + fcast + " and the soil moisture percentage is",mois, "%.")
         elif temp > 60 and fcast in "rainy":
@@ -57,6 +57,8 @@ if plant in ["beans","citrus", "cotton", "groundnut", "maize", "sorghum", "soybe
             print("Your " + plant + " plant located in the " + location + " needs water since the temperature is",temp,"degrees Fahrenheit, the weather forecast is " + fcast + " and the soil moisture percentage is",mois, "%.")
         elif temp <= 60 and fcast in "rainy":
             print("Your " + plant + " plant located in the " + location + " doesn't need water since the temperature is",temp,"degrees Fahrenheit, the weather forecast is " + fcast + " and the soil moisture percentage is",mois, "%.")
+    if plant in "maize" and mois< 15:
+            print ("Your " + plant + " plant located in the " + location + " needs water since the temperature is",temp,"degrees Fahrenheit, the weather forecast is " + fcast + " and the soil moisture percentage is",mois, "%.")
     if plant in "soybeans" and mois >= 450 and mois <= 500:
         if temp > 60 and fcast in "sunny":
             print("Your " + plant + " plant located in the " + location + " needs water since the temperature is",temp,"degrees Fahrenheit, the weather forecast is " + fcast + " and the soil moisture percentage is",mois, "%.")
