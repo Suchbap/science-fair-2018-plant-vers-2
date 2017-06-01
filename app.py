@@ -37,6 +37,8 @@ def webhook():
 
 def processRequest(req):
     if req.get("result").get("action") == "water-recommendation":
+        result = req.get("result")
+        parameters = result.get("parameters")
         baseurl = "https://query.yahooapis.com/v1/public/yql?"
         yql_query = makeYqlQuery(req)
         if yql_query is None:
@@ -44,7 +46,7 @@ def processRequest(req):
         yql_url = baseurl + urlencode({'q': yql_query}) + "&format=json"
         result = urlopen(yql_url).read()
         data = json.loads(result)
-        res = makeWebhookResult(data)
+        res = makeWebhookResult(data, parameters)
     elif req.get("result").get("action") == "plant-type":
         result = req.get("result")
         parameters = result.get("parameters")
@@ -85,7 +87,7 @@ def makeYqlQuery(req):
     return "select * from weather.forecast where woeid in (select woeid from geo.places(1) where text='" + city + "')"
 
 
-def makeWebhookResult(data):
+def makeWebhookResult(data, parameters):
     query = data.get('query')
     if query is None:
         return {}
@@ -107,7 +109,16 @@ def makeWebhookResult(data):
     condition = item.get('condition')
     if condition is None:
         return {}
-
+        plant = parameters.get("plant-type")
+        moist = parameters.get("SoilMoisture")
+        cond = float(condition.get('temp'))
+        if plant in "tulips":
+            data = {}
+            data["speech"] = "Yuvanshu your {0} needs water? ".format(plant) 
+            data["displayText"] = data["speech"]
+            data["source"] = "apiai-weather-webhook-sample"
+            res = data
+        return res
     # print(json.dumps(item, indent=4))
     
     
@@ -117,7 +128,7 @@ def makeWebhookResult(data):
     #elif cond <= 80:
     #    speech = "Today in " + location.get('city') + ": " + condition.get('text') + ", the temperature is " + condition.get('temp') + " " + units.get('temperature') + " Your plants do not need water,Yuvanshu. "
 
-def processRequest(req):
+def processRequest1(req):
     if req.get("result").get("action") == "water-recommendation":
         result = req.get("result")
         parameters = result.get("parameters")
