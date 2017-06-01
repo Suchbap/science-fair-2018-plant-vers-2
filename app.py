@@ -94,73 +94,46 @@ def makeWebhookResult(data, parameters):
 
     result = query.get('results')
     if result is None:
-        return {}
-    return {
-        "speech": "speech",
-        "displayText": "speech",
-        "source": "apiai-weather-webhook-sample"
-    }
+        return {
+            "speech": "No Result",
+            "displayText": "No Result",
+            "source": "apiai-weather-webhook-sample"
+        }
     channel = result.get('channel')
     if channel is None:
-        return {}
+        return {
+            "speech": "No Channel",
+            "displayText": "No Channel",
+            "source": "apiai-weather-webhook-sample"
+        }
 
     item = channel.get('item')
     location = channel.get('location')
     units = channel.get('units')
     if (location is None) or (item is None) or (units is None):
-        return {}
+        return {
+            "speech": "No location or item or units",
+            "displayText": "No location or item or units",
+            "source": "apiai-weather-webhook-sample"
+        }
 
     condition = item.get('condition')
     if condition is None:
-        return {}
+        return {
+            "speech": "No condition",
+            "displayText": "No condition",
+            "source": "apiai-weather-webhook-sample"
+        }
         plant = parameters.get("plant-type")
         moist = parameters.get("SoilMoisture")
         cond = float(condition.get('temp'))
         if plant in "tulips":
-            data = {}
-            data["speech"] = "Yuvanshu your {0} needs water? ".format(plant) 
-            data["displayText"] = data["speech"]
-            data["source"] = "apiai-weather-webhook-sample"
-            res = data
-        return res
-    # print(json.dumps(item, indent=4))
-    
-    
-    #cond = float(condition.get('temp'))
-    #if cond > 80:
-    #    speech = "Today in " + location.get('city') + ": " + condition.get('text') + ", the temperature is " + condition.get('temp') + " " + units.get('temperature') + " Your plants need water,Yuvanshu. "
-    #elif cond <= 80:
-    #    speech = "Today in " + location.get('city') + ": " + condition.get('text') + ", the temperature is " + condition.get('temp') + " " + units.get('temperature') + " Your plants do not need water,Yuvanshu. "
+            result = {}
+            result["speech"] = "Yuvanshu your {0} needs water? ".format(plant) 
+            result["displayText"] = result["speech"]
+            result["source"] = "apiai-weather-webhook-sample"
+        return result
 
-def processRequest1(req):
-    if req.get("result").get("action") == "water-recommendation":
-        result = req.get("result")
-        parameters = result.get("parameters")
-        plant = parameters.get("plant-type")
-        moist = parameters.get("SoilMoisture")
-        cond = float(condition.get('temp'))
-        if plant in "tulips":
-            data = {}
-            data["speech"] = "Yuvanshu your {0} needs water? ".format(plant) 
-            data["displayText"] = data["speech"]
-            data["source"] = "apiai-weather-webhook-sample"
-            res = data
-        return res
-    
-    
-    
-    #speech = "Today in " + location.get('city') + ": " + condition.get('text') + ", the temperature is " + condition.get('temp') + " " + units.get('temperature') + " Your plant need water,Yuvanshu. "
-
-    print("Response:")
-    print(speech)
-
-    return {
-        "speech": speech,
-        "displayText": speech,
-        # "data": data,
-        # "contextOut": [],
-        "source": "apiai-weather-webhook-sample"
-    }
 
 
 if __name__ == '__main__':
