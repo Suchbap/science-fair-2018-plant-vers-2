@@ -51,33 +51,6 @@ def processRequest(req):
         result = urlopen(yql_url).read()
         data = json.loads(result)
         res = makeWebhookResult(data, parameters)
-    elif req.get('result').get('action') == 'plant-type':
-        result = req.get('result')
-        parameters = result.get('parameters')
-        plant = parameters.get('plant-type')
-        data = {}
-        data['speech'] = 'Where are your {0} located? '.format(plant)
-        data['displayText'] = data['speech']
-        data['source'] = 'apiai-weather-webhook-sample'
-        res = data
-    elif req.get('result').get('action') == 'plant-location':
-        result = req.get('result')
-        parameters = result.get('parameters')
-        plantlocation = parameters.get('plant-location')
-        data = {}
-        data['speech'] = 'What is the soil moisture in your plants?'
-        data['displayText'] = data['speech']
-        data['source'] = 'apiai-weather-webhook-sample'
-        res = data
-    elif req.get('result').get('action') == 'plant-soil-moisture':
-        result = req.get('result')
-        parameters = result.get('parameters')
-        plantmoisture = parameters.get('number')
-        data = {}
-        data['speech'] = 'Which city is your plants located in? '
-        data['displayText'] = data['speech']
-        data['source'] = 'apiai-weather-webhook-sample'
-        res = data
     return res
 
 
@@ -121,11 +94,10 @@ def makeWebhookResult(data, parameters):
                 'source': 'apiai-weather-webhook-sample'}
         plant = parameters.get('plant-type')
         moist = parameters.get('SoilMoisture')
-        cond = float(condition.get('temp'))
-        if plant in 'tulips':
+        #cond = float(condition.get('temp'))
+        if plant == 'tulips':
             result = {}
-            result['speech'] = \
-                'Yuvanshu your {0} needs water? '.format(plant)
+            result['speech'] = 'Yuvanshu your {0} needs water? '.format(plant)
             result['displayText'] = result['speech']
             result['source'] = 'apiai-weather-webhook-sample'
         return result
