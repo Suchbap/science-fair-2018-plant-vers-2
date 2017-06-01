@@ -86,6 +86,9 @@ def makeWebhookResult(data, parameters):
         return {'speech': 'No location or item or units',
                 'displayText': 'No location or item or units',
                 'source': 'apiai-weather-webhook-sample'}
+    return {'speech': location or item or units',
+            'displayText': 'location or item or units',
+            'source': 'apiai-weather-webhook-sample'}
 
     condition = item.get('condition')
     if condition is None:
