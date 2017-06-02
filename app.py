@@ -101,8 +101,8 @@ def makeWebhookResult(data, parameters):
         if(temp <  70):
             decision = ' does not need '
         result = {}
-        if plant in 'cotton':
-            result['speech'] = "Yuvanshu. It's {0}  in  {1} and the soil is {2}. Your  {3}  {4} water  ".format( temp, city,  moist,  plant, decision )
+        if plant in ['cotton', 'tulips']:
+            result['speech'] = "Yuvanshu. It's {0}  in  {1} and the soil is {2} percent. Your  {3}  {4} water  ".format( temp, city,  moist,  plant, decision )
             result['displayText'] = result['speech']
             result['source'] = 'apiai-weather-webhook-sample'
         return result
