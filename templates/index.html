@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <textarea id="rawJson">
+    </textarea>
+    <input type="button" value="Go"  onclick="process()"/>
+    <div id="output">
+    </div>
+</body>
+</html>
+
+
+<script>
+
+const process = () => {
+    var payload = {
+        "result": {
+        	"action":"water-recommendation",
+        	"parameters": {
+                "geo-city":"Boston",
+                "plant-type":"tulips",
+                "SoilMoisture":"wet"
+            }
+        }
+    };
+    fetch('/webhook', {
+      method: 'post',
+      headers: {
+        'Accept': 'application/json, text/plain, */*',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(payload)
+    }).then(res=>res.json())
+      .then(res => {
+          console.log(res);
+          document.querySelector('#output').innerHTML = res.speech;
+      });
+  }
+</script>
