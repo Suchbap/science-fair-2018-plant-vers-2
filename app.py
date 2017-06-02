@@ -98,7 +98,7 @@ def makeWebhookResult(data, parameters):
         city = parameters.get('geo-city')
         temp = float(condition.get('temp'))
         decision = ' need '
-        if(moist >= 25):
+        if temp > 70 and moist > 25:
             decision = ' does not need '
         result = {}
         if plant in ['cotton', 'tulips', 'wheat']:
