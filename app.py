@@ -109,6 +109,7 @@ def makeWebhookResult(data, parameters):
             decision = ' does not need '
         elif moist > 25 and temp > 70 and fcast in ['sunny', 'cloudy' 'rainy']:
             decision = ' does not need '
+        elif moist < 10
         result = {}
         if plant in ['cotton', 'tulips', 'wheat']:
             result['speech'] = "Yuvanshu. The temperature is {0} degrees Fahrenheit and the weather forecast is {1} in  {2} and the soil moisture is {3} percent. Based on your data, your  {4}  {5} water  ".format( temp, fcast, city,  moist,  plant, decision )
