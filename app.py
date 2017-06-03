@@ -99,7 +99,7 @@ def makeWebhookResult(data, parameters):
         temp = float(condition.get('temp'))
         fcast = parameters.get('Forcast')
         decision = ' need '
-        if moist >= 20 and moist <= 25 and temp > 70 and fcast in ['sunny', 'cloudy']:
+        if moist = 23 and temp > 70 and fcast in ['sunny', 'cloudy']:
             decision = ' needs '
         elif  moist < 20 and temp > 70 and fcast in ['sunny', 'cloudy']:
             decision = ' needs '
