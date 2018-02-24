@@ -41,7 +41,7 @@ def webhook():
     return r
 
 def processRequest(req):
-    if req.get('result').get('action') == 'water-recommendation':
+    if req.get('result').get('action') == 'water-recommendation1':
         result = req.get('result')
         parameters = result.get('parameters')
         #print(json.dumps(parameters, indent=4))
