@@ -2,3 +2,4 @@ from db import DB
 
 db = DB(filename="#whatever dad's database is called", dbtype="sqlite")
 db
+#https://github.com/yhat/db.py/blob/master/db/db.py
